@@ -28,13 +28,13 @@ const STATIC_MASTERS = [
   },
 ];
 
-const STATIC_GALLERY = [
-  { id: 1, imageUrl: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=600&fit=crop&q=80', category: 'Волосся', isFeatured: true },
-  { id: 2, imageUrl: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=600&fit=crop&q=80', category: 'Нігті', isFeatured: true },
-  { id: 3, imageUrl: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&h=600&fit=crop&q=80', category: 'Макіяж', isFeatured: true },
-  { id: 4, imageUrl: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=600&fit=crop&q=80', category: 'Волосся', isFeatured: true },
-  { id: 5, imageUrl: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&h=600&fit=crop&q=80', category: 'Волосся', isFeatured: true },
-  { id: 6, imageUrl: 'https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600&h=600&fit=crop&q=80', category: 'Нігті', isFeatured: true },
+const STATIC_GALLERY: GalleryItem[] = [
+  { id: 1, imageUrl: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=600&fit=crop&q=80', category: 'Волосся', isFeatured: true, createdAt: '' },
+  { id: 2, imageUrl: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=600&fit=crop&q=80', category: 'Нігті', isFeatured: true, createdAt: '' },
+  { id: 3, imageUrl: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&h=600&fit=crop&q=80', category: 'Макіяж', isFeatured: true, createdAt: '' },
+  { id: 4, imageUrl: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=600&fit=crop&q=80', category: 'Волосся', isFeatured: true, createdAt: '' },
+  { id: 5, imageUrl: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&h=600&fit=crop&q=80', category: 'Волосся', isFeatured: true, createdAt: '' },
+  { id: 6, imageUrl: 'https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600&h=600&fit=crop&q=80', category: 'Нігті', isFeatured: true, createdAt: '' },
 ];
 
 const REVIEWS = [
