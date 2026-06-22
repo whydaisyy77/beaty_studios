@@ -6,7 +6,7 @@ import { Calendar, Scissors, TrendingUp, Clock, ArrowRight } from 'lucide-react'
 import { appointmentsApi, servicesApi } from '@/lib/api';
 import type { Appointment } from '@/types';
 import { format } from 'date-fns';
-import { ru } from 'date-fns/locale';
+import { uk } from 'date-fns/locale';
 import clsx from 'clsx';
 
 const STATUS_LABELS: Record<string, string> = {

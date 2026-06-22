@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Scissors, Phone, MapPin, Clock, Instagram } from 'lucide-react';
-import { usePathname } from 'next/navigation';
 
 export default function Footer() {
   return (
@@ -15,7 +14,7 @@ export default function Footer() {
               <span className="font-serif text-xl font-bold text-white">Beauty Studio</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Профессиональный уход за вашей красотой. Команда опытных мастеров, современные технологии, уютная атмосфера.
+              Професійний догляд за вашою красою. Команда досвідчених майстрів, сучасні технології, затишна атмосфера.
             </p>
             <div className="flex gap-3 mt-5">
               <a href="#" className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-rose-600 transition-colors">
@@ -25,13 +24,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Навигация</h3>
+            <h3 className="text-white font-semibold mb-4">Навігація</h3>
             <ul className="space-y-2 text-sm">
               {[
-                { href: '/', label: 'Главная' },
-                { href: '/services', label: 'Услуги' },
-                { href: '/portfolio', label: 'Портфолио' },
-                { href: '/booking', label: 'Запись' },
+                { href: '/', label: 'Головна' },
+                { href: '/services', label: 'Послуги' },
+                { href: '/masters', label: 'Майстри' },
+                { href: '/portfolio', label: 'Портфоліо' },
+                { href: '/booking', label: 'Запис' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="hover:text-rose-400 transition-colors">
@@ -43,27 +43,27 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Контакты</h3>
+            <h3 className="text-white font-semibold mb-4">Контакти</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Phone className="w-4 h-4 mt-0.5 text-rose-400 shrink-0" />
-                <span>+7 (900) 123-45-67</span>
+                <span>+38 (067) 123-45-67</span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-0.5 text-rose-400 shrink-0" />
-                <span>ул. Примерная, 15, Москва</span>
+                <span>вул. Хрещатик, 15, Київ</span>
               </li>
               <li className="flex items-start gap-2">
                 <Clock className="w-4 h-4 mt-0.5 text-rose-400 shrink-0" />
-                <span>Пн–Сб: 9:00 – 20:00<br />Вс: выходной</span>
+                <span>Пн–Сб: 9:00 – 20:00<br />Нд: вихідний</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Beauty Studio. Все права защищены.</p>
-          <Link href="/admin" className="hover:text-gray-400 transition-colors">Вход для администратора</Link>
+          <p>© {new Date().getFullYear()} Beauty Studio. Всі права захищені.</p>
+          <Link href="/admin" className="hover:text-gray-400 transition-colors">Вхід для адміністратора</Link>
         </div>
       </div>
     </footer>

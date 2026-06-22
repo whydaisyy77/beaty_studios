@@ -7,10 +7,11 @@ import { Menu, X, Scissors } from 'lucide-react';
 import clsx from 'clsx';
 
 const links = [
-  { href: '/', label: 'Главная' },
-  { href: '/services', label: 'Услуги' },
-  { href: '/portfolio', label: 'Портфолио' },
-  { href: '/booking', label: 'Записаться' },
+  { href: '/', label: 'Головна' },
+  { href: '/services', label: 'Послуги' },
+  { href: '/masters', label: 'Майстри' },
+  { href: '/portfolio', label: 'Портфоліо' },
+  { href: '/booking', label: 'Запис' },
 ];
 
 export default function Navbar() {
@@ -24,8 +25,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isAdmin = pathname.startsWith('/admin');
-  if (isAdmin) return null;
+  if (pathname.startsWith('/admin')) return null;
 
   return (
     <header
@@ -43,7 +43,7 @@ export default function Navbar() {
             <span className="font-serif text-xl font-bold text-gray-900">Beauty Studio</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-7">
             {links.map(({ href, label }) => (
               <Link
                 key={href}
@@ -58,16 +58,15 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center">
             <Link href="/booking" className="btn-primary text-sm py-2.5">
-              Онлайн-запись
+              Записатися онлайн
             </Link>
           </div>
 
           <button
             className="md:hidden p-2 rounded-lg text-gray-700"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -76,13 +75,13 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
-          <div className="px-4 py-4 space-y-3">
+          <div className="px-4 py-4 space-y-2">
             {links.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
                 className={clsx(
-                  'block py-2 text-base font-medium transition-colors',
+                  'block py-2.5 text-base font-medium transition-colors',
                   pathname === href ? 'text-rose-600' : 'text-gray-700'
                 )}
                 onClick={() => setIsOpen(false)}
@@ -90,12 +89,8 @@ export default function Navbar() {
                 {label}
               </Link>
             ))}
-            <Link
-              href="/booking"
-              className="btn-primary block text-center text-sm mt-2"
-              onClick={() => setIsOpen(false)}
-            >
-              Записаться онлайн
+            <Link href="/booking" className="btn-primary block text-center text-sm mt-3" onClick={() => setIsOpen(false)}>
+              Записатися онлайн
             </Link>
           </div>
         </div>
