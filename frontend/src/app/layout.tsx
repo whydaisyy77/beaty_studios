@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
+import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
+
+const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' });
+const playfair = Playfair_Display({ subsets: ['latin', 'cyrillic'], variable: '--font-playfair' });
 import { Toaster } from 'react-hot-toast';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -17,8 +21,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="uk">
-      <body>
+    <html lang="uk" className={`${inter.variable} ${playfair.variable}`}>
+      <body className={inter.className}>
         <Toaster position="top-right" toastOptions={{ duration: 4000 }} />
         <Navbar />
         <main>{children}</main>
