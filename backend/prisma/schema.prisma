@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  phone     String?
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Master {
+  id           Int           @id @default(autoincrement())
+  name         String
+  specialty    String
+  bio          String?
+  photoUrl     String?
+  isActive     Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  appointments Appointment[]
+  schedules    Schedule[]
+
+  @@map("masters")
+}
+
+model Service {
+  id           Int           @id @default(autoincrement())
+  name         String
+  description  String?
+  price        Float
+  duration     Int           // minutes
+  category     String
+  isActive     Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  appointments Appointment[]
+
+  @@map("services")
+}
+
+model Appointment {
+  id        Int               @id @default(autoincrement())
+  userName  String
+  phone     String
+  email     String?
+  serviceId Int
+  masterId  Int?
+  date      String
+  time      String
+  status    AppointmentStatus @default(NEW)
+  notes     String?
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  service Service @relation(fields: [serviceId], references: [id])
+  master  Master? @relation(fields: [masterId], references: [id])
+
+  @@map("appointments")
+}
+
+model Gallery {
+  id        Int      @id @default(autoincrement())
+  imageUrl  String
+  publicId  String?
+  category  String
+  title     String?
+  isFeatured Boolean @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("gallery")
+}
+
+model Schedule {
+  id        Int      @id @default(autoincrement())
+  masterId  Int
+  dayOfWeek Int      // 0=Sun, 1=Mon, ..., 6=Sat
+  startTime String   // "09:00"
+  endTime   String   // "18:00"
+  isWorking Boolean  @default(true)
+
+  master Master @relation(fields: [masterId], references: [id])
+
+  @@unique([masterId, dayOfWeek])
+  @@map("schedules")
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum AppointmentStatus {
+  NEW
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}

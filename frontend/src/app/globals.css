@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter);
+  color: #1a1a1a;
+  background: #fff;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-rose-600 hover:bg-rose-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-rose-600 text-rose-600 hover:bg-rose-600 hover:text-white font-semibold px-6 py-3 rounded-full transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply text-gray-600 hover:text-rose-600 font-medium transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-200;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl md:text-4xl font-bold text-gray-900 text-center;
+  }
+
+  .section-subtitle {
+    @apply text-gray-500 text-center mt-3 text-lg max-w-2xl mx-auto;
+  }
+
+  .input-field {
+    @apply w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1.5;
+  }
+
+  .badge-new {
+    @apply bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full;
+  }
+  .badge-confirmed {
+    @apply bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full;
+  }
+  .badge-cancelled {
+    @apply bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full;
+  }
+  .badge-completed {
+    @apply bg-gray-100 text-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded-full;
+  }
+}
