@@ -5,7 +5,10 @@
       "Bash(docker-compose --version)",
       "Bash(docker compose *)",
       "Bash(npm --version)",
-      "Bash(psql --version)"
+      "Bash(psql --version)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }

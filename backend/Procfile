@@ -1,1 +1,1 @@
-web: npx prisma migrate deploy && node prisma/seed.js; node src/index.js
+web: npx prisma migrate deploy && node src/index.js
